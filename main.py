@@ -23,8 +23,8 @@ parser.add_argument('--save', type=str, default='/output/', metavar='B',
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 args = parser.parse_args()
-train_dataset = MNISTTrainDataset(query_size=args.query_size, most_digit=6)
-test_dataset = MNISTTestDataset(query_size=args.query_size, least_digit=7)
+train_dataset = MNISTTrainDataset(query_size=args.query_size, most_digit=5)
+test_dataset = MNISTTestDataset(query_size=args.query_size, least_digit=6)
 model = MLP(args.hidden_dim, 784).to(device)
 optimizer = optim.Adam(params=model.parameters(), lr=args.lr, weight_decay= 1e-4)
 bce_loss = nn.BCELoss()

@@ -77,20 +77,21 @@ class MNISTTestDataset(datasets.VisionDataset):
         self.number = query_size
 
     def __getitem__(self, index):
-        target = torch.cat((torch.ones(self.number // 2), torch.zeros(self.number // 2)), dim=0)
-        number = self.labels[index]
-        positive = self.dataset[torch.where(self.labels == number)[0]]
+        query_label = torch.cat((torch.ones(self.number // 2), torch.zeros(self.number // 2)), dim=0)
+        target_sample = self.dataset[index]
+        target_label = self.labels[index]
+        positive = self.dataset[torch.where(self.labels == target_label)[0]]
         a = np.random.choice(positive.shape[0], self.number // 2)
         query_p = positive[a, :]
-        negative = self.dataset[torch.where(self.labels != number)[0]]
+        negative = self.dataset[torch.where(self.labels != target_label)[0]]
         query_n = negative[np.random.choice(negative.shape[0], self.number // 2), :]
         query = torch.cat((query_p, query_n), dim=0)
         shuffle_idx = torch.randperm(self.number)
         # Shuffle query
         query = query[shuffle_idx]
-        target = target[shuffle_idx]
+        query_label = query_label[shuffle_idx]
 
-        return (query, target, self.dataset[index])
+        return (query, query_label, target_sample)
 
     def __len__(self):
         return self.dataset.shape[0]
