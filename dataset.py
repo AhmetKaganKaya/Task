@@ -96,13 +96,13 @@ class MNISTTestDataset(datasets.VisionDataset):
         return self.dataset.shape[0]
 
 if __name__ == "__main__":
-    dataset = MNISTTrainDataset(5, 8)
-    query,target, sample, = dataset.__getitem__(2005)
-    for i in range(2):
-        for j in range(4):
-            plt.subplot(2,4, i*4+j+1)
-            plt.imshow(np.array(query[i*4+j]).reshape(28,28), cmap='gray')
-
-    print(target)
-    plt.show()
+    test_dataset = MNISTTestDataset(6, 8)
+    train_dataset = MNISTTrainDataset(5,8)
+    # for i in range(2):
+    #     for j in range(4):
+    #         plt.subplot(2,4, i*4+j+1)
+    #         plt.imshow(np.array(query[i*4+j]).reshape(28,28), cmap='gray')
+    #
+    # print(target)
+    # plt.show()
     print("a")
