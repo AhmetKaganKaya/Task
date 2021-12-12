@@ -39,8 +39,7 @@ class MNISTTrainDataset(datasets.VisionDataset):
         mnist = datasets.MNIST(root= "/input/", download= True, train= True)
         all_labels = mnist.targets
         all_data = transform_train_images(mnist.data[torch.where(all_labels <= most_digit)[0]])
-        # self.dataset = all_data.reshape(-1,784) / 1.
-        self.dataset = all_data.reshape(-1,1,28,28) / 1.
+        self.dataset = all_data.reshape(-1,784) / 1.
         self.labels = all_labels[torch.where(all_labels <= most_digit)[0]]
 
         self.number = query_size
@@ -71,8 +70,7 @@ class MNISTTestDataset(datasets.VisionDataset):
         mnist = datasets.MNIST(root= "/input/", download= True, train= False)
         all_labels = mnist.targets
         test_data = transform_test_images(mnist.data[torch.where(all_labels >= least_digit)[0]])
-        # self.dataset = test_data.reshape(-1,784) / 1.
-        self.dataset = test_data.reshape(-1,1,28,28) / 1.
+        self.dataset = test_data.reshape(-1,784) / 1.
 
         self.labels = all_labels[torch.where(all_labels >= least_digit)[0]]
 
