@@ -1,7 +1,7 @@
 from train import train
 from model import MLPModule, CNNModule
 from dataset import MNISTDataset
-from utils import setLogger
+from utils import setLogger, visualize_result
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -50,4 +50,6 @@ optimizer = optim.Adam(params=model.parameters(), lr=args.lr, weight_decay= 1e-4
 bce_loss = nn.BCELoss()
 
 if __name__ == "__main__":
-    train(args=args, train_dataset=train_dataset, test_dataset=test_dataset, model=model, optimizer=optimizer, loss=bce_loss, logger= logger, device=device)
+    train_loss, test_accuracy = train(args=args, train_dataset=train_dataset, test_dataset=test_dataset, model=model, optimizer=optimizer, loss=bce_loss, logger= logger, device=device)
+    dict = {"Train Loss": train_loss, "Test Accuracy": test_accuracy}
+    visualize_result(args, dict)
