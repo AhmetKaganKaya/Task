@@ -33,19 +33,29 @@ def transform_test_images(dataset):
         dataset[i] = img
     return dataset
 
-class MNISTTrainDataset(datasets.VisionDataset):
-    def __init__(self, most_digit, query_size):
-        super(MNISTTrainDataset, self).__init__(most_digit)
+class MNISTDataset(datasets.VisionDataset):
+    def __init__(self, most_digit, query_size, type, train=True):
+        super(MNISTDataset, self).__init__(most_digit)
         mnist = datasets.MNIST(root= "input/", download= True, train= True)
         all_labels = mnist.targets
-        all_data = transform_train_images(mnist.data[torch.where(all_labels <= most_digit)[0]])
-        self.dataset = all_data.reshape(-1,784) / 1.
-        self.labels = all_labels[torch.where(all_labels <= most_digit)[0]]
+        if train:
+            all_data = transform_train_images(mnist.data[torch.where(all_labels <= most_digit)[0]])
+            self.labels = all_labels[torch.where(all_labels <= most_digit)[0]]
+        else:
+            all_data = transform_test_images(mnist.data[torch.where(all_labels > most_digit)[0]])
+            self.labels = all_labels[torch.where(all_labels > most_digit)[0]]
+
+        if type == 'mlp':
+            self.dataset = all_data.reshape(-1,784).type(torch.FloatTensor)
+        elif type == 'cnn':
+            self.dataset = all_data.unsqueeze(1).type(torch.FloatTensor)
+
 
         self.number = query_size
 
     def __getitem__(self, index):
-        target = torch.cat((torch.ones(self.number // 2), torch.zeros(self.number // 2)), dim=0)
+        query_label = torch.cat((torch.ones(self.number // 2), torch.zeros(self.number // 2)), dim=0)
+        class_sample = self.dataset[index]
         number = self.labels[index]
         positive = self.dataset[torch.where(self.labels == number)[0]]
         a = np.random.choice(positive.shape[0], self.number // 2)
@@ -56,49 +66,16 @@ class MNISTTrainDataset(datasets.VisionDataset):
         shuffle_idx = torch.randperm(self.number)
         # Shuffle query
         query = query[shuffle_idx]
-        target = target[shuffle_idx]
-
-        return query, target, self.dataset[index]
-
-    def __len__(self):
-        return self.dataset.shape[0]
-
-
-class MNISTTestDataset(datasets.VisionDataset):
-    def __init__(self, least_digit, query_size):
-        super(MNISTTestDataset, self).__init__(least_digit)
-        mnist = datasets.MNIST(root= "input/", download= True, train= False)
-        all_labels = mnist.targets
-        test_data = transform_test_images(mnist.data[torch.where(all_labels >= least_digit)[0]])
-        self.dataset = test_data.reshape(-1,784) / 1.
-
-        self.labels = all_labels[torch.where(all_labels >= least_digit)[0]]
-
-        self.number = query_size
-
-    def __getitem__(self, index):
-        query_label = torch.cat((torch.ones(self.number // 2), torch.zeros(self.number // 2)), dim=0)
-        target_sample = self.dataset[index]
-        target_label = self.labels[index]
-        positive = self.dataset[torch.where(self.labels == target_label)[0]]
-        a = np.random.choice(positive.shape[0], self.number // 2)
-        query_p = positive[a, :]
-        negative = self.dataset[torch.where(self.labels != target_label)[0]]
-        query_n = negative[np.random.choice(negative.shape[0], self.number // 2), :]
-        query = torch.cat((query_p, query_n), dim=0)
-        shuffle_idx = torch.randperm(self.number)
-        # Shuffle query
-        query = query[shuffle_idx]
         query_label = query_label[shuffle_idx]
 
-        return (query, query_label, target_sample)
+        return query, query_label, class_sample
 
     def __len__(self):
         return self.dataset.shape[0]
 
 if __name__ == "__main__":
-    test_dataset = MNISTTestDataset(6, 8)
-    train_dataset = MNISTTrainDataset(5,8)
+    train_dataset = MNISTDataset(5, 8, True)
+    test_dataset = MNISTDataset(5,8, False)
     # for i in range(2):
     #     for j in range(4):
     #         plt.subplot(2,4, i*4+j+1)
