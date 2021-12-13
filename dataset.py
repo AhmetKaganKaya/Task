@@ -74,8 +74,8 @@ class MNISTDataset(datasets.VisionDataset):
         return self.dataset.shape[0]
 
 if __name__ == "__main__":
-    train_dataset = MNISTDataset(5, 8, True)
-    test_dataset = MNISTDataset(5,8, False)
+    train_dataset = MNISTDataset(5, 8, "mlp", True)
+    test_dataset = MNISTDataset(5,8, "mlp", False)
     # for i in range(2):
     #     for j in range(4):
     #         plt.subplot(2,4, i*4+j+1)

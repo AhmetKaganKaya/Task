@@ -34,7 +34,6 @@ class CNN(nn.Module):
             nn.ReLU(),
             nn.MaxPool2d(2),
         )
-
         cnn_out = self.conv2(self.conv1(torch.randn(1,1,input_dim, input_dim))).reshape(1,-1).shape[-1]
         self.out = nn.Linear(cnn_out, input_dim * input_dim)
 
@@ -45,8 +44,6 @@ class CNN(nn.Module):
         output = self.out(output)
 
         return output
-
-
 
 class MLPModule(nn.Module):
     def __init__(self, hidden_dim, input_dim):
