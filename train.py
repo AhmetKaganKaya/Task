@@ -17,6 +17,7 @@ def train(trial, args, train_dataset, test_dataset, model, loss, logger, device,
         iteration_train = iter(train_loader)
         iteration_test = iter(test_loader)
         args.lr = trial.suggest_float("lr", 1e-5, 0.1, log=True)
+        print("Suggested LR: {}".format(args.lr))
         optimizer = optim.Adam(params=model.parameters(), lr=args.lr, weight_decay= 1e-4)
 
         for epoch in range(args.num_iter):
@@ -42,6 +43,7 @@ def train(trial, args, train_dataset, test_dataset, model, loss, logger, device,
             train_losses.append(epoch_loss)
 
             accuracy = test(args, model, iteration_test, device, logger)
+            trial.report(accuracy, epoch)
             if trial.should_prune():
                 raise optuna.exceptions.TrialPruned()
 

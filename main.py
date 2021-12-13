@@ -10,7 +10,7 @@ import argparse
 import optuna
 
 parser = argparse.ArgumentParser(description='One-Shot MNIST Classification')
-parser.add_argument('--num_iter', type=int, default=5000, metavar='B',
+parser.add_argument('--num-iter', type=int, default=5000, metavar='B',
                     help='Number of epoch')
 parser.add_argument('--train-iter', type=int, default=100, metavar='B',
                     help='Number of train iterations')
@@ -20,6 +20,8 @@ parser.add_argument('--hidden-dim', type=int, default=128, metavar='B',
                     help='Number of neurons in hidden layer')
 parser.add_argument('--image-size', type=int, default=28, metavar='B',
                     help='Width and Height')
+parser.add_argument('--device', type=int, default=0, metavar='B',
+                    help='GPU')
 parser.add_argument('--query-size', type=int, default=8, metavar='B',
                     help='Query size')
 parser.add_argument('--module-type', type=str, default='cnn' , metavar='B',
@@ -33,8 +35,8 @@ parser.add_argument('--save', type=str, default='output/', metavar='B',
 parser.add_argument('--optuna-database', type=str, default='output/', metavar='B',
                     help='outputs path')
 
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 args = parser.parse_args()
+device = torch.device("cuda:" + str(args.device) if torch.cuda.is_available() else "cpu")
 if not os.path.exists(args.save):
     os.mkdir(os.path.join(args.save))
 if not os.path.exists(os.path.join(args.save, "checkpoint")):
@@ -55,7 +57,7 @@ if __name__ == "__main__":
     study = optuna.create_study(
         direction="maximize",
         pruner=optuna.pruners.MedianPruner(n_warmup_steps=15),
-        study_name='{}'.format(args.exp_name),
+        study_name='optuna-task',
         storage= args.optuna_database,
         load_if_exists=True)
     try:

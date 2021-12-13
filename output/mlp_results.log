@@ -1,0 +1,99 @@
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=0.001, module_type='mlp', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Epoch Loss: 66.87
+Test Accuracy: 53.20%
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=0.001, module_type='mlp', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=0.001, module_type='mlp', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Epoch Loss: 66.43
+Test Accuracy: 54.82%
+Epoch 2
+Epoch Loss: 49.06
+Test Accuracy: 56.89%
+Epoch 3
+Epoch Loss: 44.03
+Test Accuracy: 58.77%
+Epoch 4
+Epoch Loss: 42.34
+Test Accuracy: 57.22%
+Epoch 5
+Epoch Loss: 41.04
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=0.001, module_type='mlp', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Epoch Loss: 67.09
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=0.001, module_type='mlp', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=0.001, module_type='mlp', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=3e-05, module_type='mlp', num_iter=5000, output='output/', query_size=8, test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+======= Summary =======
+Best Accuracy: None
+Namespace(batch_size=32, device=0, hidden_dim=128, image_size=28, lr=3e-05, module_type='mlp', num_iter=20, output='output/', query_size=8, test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Epoch Loss: 105.49
+Test Accuracy: 49.37%
+Epoch 2
+======= Summary =======
+Best Accuracy: 49.3671875
+Namespace(batch_size=32, device=0, hidden_dim=128, image_size=28, lr=3e-05, module_type='mlp', num_iter=50, optuna_database='mysql+pymysql://faltinel:falt32@192.168.0.102:3306/optuna', query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Namespace(batch_size=32, device=0, hidden_dim=128, image_size=28, lr=3e-05, module_type='mlp', num_iter=50, optuna_database='mysql+pymysql://faltinel:falt32@192.168.0.102:3306/optuna', query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Namespace(batch_size=32, device=1, hidden_dim=128, image_size=28, lr=3e-05, module_type='mlp', num_iter=50, optuna_database='mysql+pymysql://faltinel:falt32@192.168.0.102:3306/optuna', query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Namespace(batch_size=32, device=2, hidden_dim=128, image_size=28, lr=3e-05, module_type='mlp', num_iter=50, optuna_database='mysql+pymysql://faltinel:falt32@192.168.0.102:3306/optuna', query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Namespace(batch_size=32, device=3, hidden_dim=128, image_size=28, lr=3e-05, module_type='mlp', num_iter=50, optuna_database='mysql+pymysql://faltinel:falt32@192.168.0.102:3306/optuna', query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Epoch Loss: 102.29
+Test Accuracy: 47.97%
+Epoch 2
+Epoch Loss: 107.04
+Epoch Loss: 65.31
+Test Accuracy: 56.66%
+Epoch 2
+Test Accuracy: 49.90%
+Epoch 2
+Epoch Loss: 4381.36
+Test Accuracy: 49.58%
+Epoch 2
+Epoch Loss: 84.71
+======= Summary =======
+Best Accuracy: 47.96875
+Epoch 1
+======= Summary =======
+Best Accuracy: None
+======= Summary =======
+Best Accuracy: 49.8984375
+======= Summary =======
+Best Accuracy: 49.578125
+======= Summary =======
+Best Accuracy: None
+======= Summary =======
+Best Accuracy: 56.6640625
+Epoch 1
+======= Summary =======
+Best Accuracy: None
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=3e-05, module_type='mlp', num_iter=30, optuna_database='mysql+pymysql://faltinel:falt32@192.168.0.102:3306/optuna', query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Namespace(batch_size=32, device=1, hidden_dim=128, image_size=28, lr=3e-05, module_type='mlp', num_iter=30, optuna_database='mysql+pymysql://faltinel:falt32@192.168.0.102:3306/optuna', query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Namespace(batch_size=32, device=2, hidden_dim=128, image_size=28, lr=3e-05, module_type='mlp', num_iter=50, optuna_database='mysql+pymysql://faltinel:falt32@192.168.0.102:3306/optuna', query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Namespace(batch_size=32, device=3, hidden_dim=128, image_size=28, lr=3e-05, module_type='mlp', num_iter=50, optuna_database='mysql+pymysql://faltinel:falt32@192.168.0.102:3306/optuna', query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Namespace(batch_size=32, device=0, hidden_dim=128, image_size=28, lr=3e-05, module_type='mlp', num_iter=30, optuna_database='mysql+pymysql://faltinel:falt32@192.168.0.102:3306/optuna', query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!

@@ -1,0 +1,122 @@
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=0.001, module_type='cnn', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=0.001, module_type='cnn', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=0.001, module_type='cnn', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=0.001, module_type='cnn', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=0.001, module_type='cnn', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=0.001, module_type='cnn', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=0.001, module_type='cnn', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Epoch Loss: 4758.30
+Test Accuracy: 49.51%
+Epoch 2
+Epoch Loss: 4055.36
+Test Accuracy: 50.73%
+Epoch 3
+Epoch Loss: 4107.13
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=0.0003, module_type='cnn', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Epoch Loss: 4589.63
+Test Accuracy: 50.00%
+Epoch 2
+Epoch Loss: 5000.00
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=3e-05, module_type='cnn', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Epoch Loss: 336.91
+Test Accuracy: 49.95%
+Epoch 2
+Epoch Loss: 155.94
+Test Accuracy: 50.98%
+Epoch 3
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=3e-05, module_type='cnn', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=3e-05, module_type='cnn', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Epoch Loss: 73.29
+Test Accuracy: 49.42%
+Epoch 2
+Epoch Loss: 56.64
+Test Accuracy: 51.80%
+Epoch 3
+Epoch Loss: 50.99
+Test Accuracy: 52.41%
+Epoch 4
+Epoch Loss: 46.85
+Test Accuracy: 53.53%
+Epoch 5
+Epoch Loss: 44.50
+Test Accuracy: 54.89%
+Epoch 6
+Epoch Loss: 43.13
+Test Accuracy: 55.56%
+Epoch 7
+Epoch Loss: 41.47
+Test Accuracy: 54.93%
+Epoch 8
+Epoch Loss: 41.37
+Test Accuracy: 55.77%
+Epoch 9
+Epoch Loss: 40.13
+Test Accuracy: 56.65%
+Epoch 10
+Epoch Loss: 39.65
+Test Accuracy: 56.14%
+Epoch 11
+Epoch Loss: 38.89
+Test Accuracy: 56.75%
+Epoch 12
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=3e-05, module_type='cnn', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+======= Summary =======
+Best Accuracy: None
+Namespace(batch_size=32, hidden_dim=128, image_size=28, lr=3e-05, module_type='cnn', num_iter=5000, query_size=8, save='output/', test_iter=50, train_iter=100)
+Experiment Starts!
+Epoch 1
+Epoch Loss: 77.73
+Test Accuracy: 51.32%
+Epoch 2
+Epoch Loss: 55.72
+Test Accuracy: 52.54%
+Epoch 3
+Epoch Loss: 50.15
+Test Accuracy: 53.48%
+Epoch 4
+Epoch Loss: 46.65
+Test Accuracy: 53.45%
+Epoch 5
+Epoch Loss: 45.08
+Test Accuracy: 54.00%
+Epoch 6
+Epoch Loss: 44.17
+Test Accuracy: 54.49%
+Epoch 7
+Epoch Loss: 42.82
+Test Accuracy: 54.74%
+Epoch 8
+Epoch Loss: 41.91
+Test Accuracy: 55.44%
+Epoch 9
+Epoch Loss: 41.05
+Test Accuracy: 55.55%
+Epoch 10
+Epoch Loss: 40.16
+Test Accuracy: 55.25%
+Epoch 11
+Epoch Loss: 40.47
+Test Accuracy: 55.73%
+Epoch 12
