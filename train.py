@@ -14,36 +14,41 @@ def train(args, train_dataset, test_dataset, model, optimizer, loss, device, bat
         print("############Epoch{}############".format(epoch + 1))
         model.train()
         epoch_loss = 0
-        for idx, (query, target, sample) in enumerate(train_loader):
+        bar = tqdm(enumerate(train_loader))
+        for idx, (query, target, sample) in bar:
+            bar.set_description(
+                "Epoch Loss: {:.2f}".format(epoch_loss))
             query = query.to(device)
             target = target.to(device)
             sample = sample.to(device)
 
             optimizer.zero_grad()
             output = model(sample, query)
-            batch_loss = loss(output.squeeze(2), target)
+            batch_loss = loss(output.squeeze(-1), target)
             batch_loss.backward()
             optimizer.step()
             epoch_loss += batch_loss
-
-            correct = 0
-            model.eval()
-            bar = tqdm(enumerate(test_loader))
-            for idx, (query, target, sample) in bar:
-                bar.set_description(
-                    "Test Accuracy: {:.2f}%".format((100 * correct) / (args.query_size * batch_size * 50)))
-                query = query.to(device)
-                target = target.to(device)
-                sample = sample.to(device)
-
-                output = model(sample, query)
-                output = torch.where(output < 0.5, 0., 1.)
-                correct += (output.squeeze(2)).eq(target).cpu().sum()
-                if idx == 50:
-                    break
-            accuracy = (100 * correct) / (args.query_size * batch_size * 50)
-            test_acc.append(accuracy)
+            if idx == 100:
+                break
         train_losses.append(epoch_loss)
+
+        correct = 0
+        model.eval()
+        bar = tqdm(enumerate(test_loader))
+        for idx, (query, target, sample) in bar:
+            bar.set_description(
+                "Test Accuracy: {:.2f}%".format((100 * correct) / (args.query_size * batch_size * 50)))
+            query = query.to(device)
+            target = target.to(device)
+            sample = sample.to(device)
+
+            output = model(sample, query)
+            output = torch.where(output < 0.5, 0., 1.)
+            correct += (output.squeeze(-1)).eq(target).cpu().sum()
+            if idx == 50:
+                break
+        accuracy = (100 * correct) / (args.query_size * batch_size * 50)
+        test_acc.append(accuracy)
 
 
 

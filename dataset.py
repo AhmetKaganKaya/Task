@@ -9,9 +9,9 @@ def transform_train_images(dataset):
     for i in range(dataset.shape[0]):
         data = dataset[i]
         transform = transforms.Compose([
-            transforms.ToTensor(),
             transforms.RandomHorizontalFlip(0.2),
             transforms.RandomRotation(degrees=(0, 45)),
+            transforms.ToTensor(),
             transforms.Normalize((0.1307,), (0.3081,))])
         img = Image.fromarray(data.numpy(), mode='L')
 
@@ -36,7 +36,7 @@ def transform_test_images(dataset):
 class MNISTTrainDataset(datasets.VisionDataset):
     def __init__(self, most_digit, query_size):
         super(MNISTTrainDataset, self).__init__(most_digit)
-        mnist = datasets.MNIST(root= "/input/", download= True, train= True)
+        mnist = datasets.MNIST(root= "input/", download= True, train= True)
         all_labels = mnist.targets
         all_data = transform_train_images(mnist.data[torch.where(all_labels <= most_digit)[0]])
         self.dataset = all_data.reshape(-1,784) / 1.
@@ -67,7 +67,7 @@ class MNISTTrainDataset(datasets.VisionDataset):
 class MNISTTestDataset(datasets.VisionDataset):
     def __init__(self, least_digit, query_size):
         super(MNISTTestDataset, self).__init__(least_digit)
-        mnist = datasets.MNIST(root= "/input/", download= True, train= False)
+        mnist = datasets.MNIST(root= "input/", download= True, train= False)
         all_labels = mnist.targets
         test_data = transform_test_images(mnist.data[torch.where(all_labels >= least_digit)[0]])
         self.dataset = test_data.reshape(-1,784) / 1.

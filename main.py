@@ -1,5 +1,5 @@
 from train import train
-from model import MLP
+from model import MLPModule
 from dataset import MNISTTrainDataset,MNISTTestDataset
 import torch
 import torch.nn as nn
@@ -25,7 +25,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 args = parser.parse_args()
 train_dataset = MNISTTrainDataset(query_size=args.query_size, most_digit=5)
 test_dataset = MNISTTestDataset(query_size=args.query_size, least_digit=6)
-model = MLP(args.hidden_dim, 784).to(device)
+model = MLPModule(args.hidden_dim, 784).to(device)
 optimizer = optim.Adam(params=model.parameters(), lr=args.lr, weight_decay= 1e-4)
 bce_loss = nn.BCELoss()
 
