@@ -7,6 +7,7 @@ import torch.nn as nn
 import torch.optim as optim
 import os
 import argparse
+import optuna
 
 parser = argparse.ArgumentParser(description='One-Shot MNIST Classification')
 parser.add_argument('--num_iter', type=int, default=5000, metavar='B',
@@ -29,6 +30,8 @@ parser.add_argument('--lr', type=float, default=3e-5, metavar='B',
                     help='Learning Rate')
 parser.add_argument('--save', type=str, default='output/', metavar='B',
                     help='outputs path')
+parser.add_argument('--optuna-database', type=str, default='output/', metavar='B',
+                    help='outputs path')
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 args = parser.parse_args()
@@ -46,8 +49,19 @@ if args.module_type == 'mlp':
     model = MLPModule(args.hidden_dim, args.image_size * args.image_size).to(device)
 elif args.module_type == 'cnn':
     model = CNNModule(args.image_size).to(device)
-optimizer = optim.Adam(params=model.parameters(), lr=args.lr, weight_decay= 1e-4)
 bce_loss = nn.BCELoss()
 
 if __name__ == "__main__":
-    train(args=args, train_dataset=train_dataset, test_dataset=test_dataset, model=model, optimizer=optimizer, loss=bce_loss, logger= logger, device=device)
+    study = optuna.create_study(
+        direction="maximize",
+        pruner=optuna.pruners.MedianPruner(n_warmup_steps=15),
+        study_name='{}'.format(args.exp_name),
+        storage= args.optuna_database,
+        load_if_exists=True)
+    try:
+        study.optimize(lambda trial: train(trial = trial, args=args, train_dataset=train_dataset,
+                                           test_dataset=test_dataset, model=model,
+                                           loss=bce_loss, logger= logger, device=device), n_trials=200)
+    except KeyboardInterrupt as ke:
+        pass
+

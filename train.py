@@ -2,10 +2,12 @@ import torch
 from utils import calculate_accuracy
 from tqdm import tqdm
 from torch.utils.data import DataLoader
+import torch.optim as optim
 import os
+import optuna
 
 
-def train(args, train_dataset, test_dataset, model, optimizer, loss, logger, device,):
+def train(trial, args, train_dataset, test_dataset, model, loss, logger, device,):
     try:
         train_losses = []
         test_acc = []
@@ -14,6 +16,8 @@ def train(args, train_dataset, test_dataset, model, optimizer, loss, logger, dev
         best_accuracy = None
         iteration_train = iter(train_loader)
         iteration_test = iter(test_loader)
+        args.lr = trial.suggest_float("lr", 1e-5, 0.1, log=True)
+        optimizer = optim.Adam(params=model.parameters(), lr=args.lr, weight_decay= 1e-4)
 
         for epoch in range(args.num_iter):
             logger.info("Epoch {}".format(epoch + 1))
@@ -38,6 +42,9 @@ def train(args, train_dataset, test_dataset, model, optimizer, loss, logger, dev
             train_losses.append(epoch_loss)
 
             accuracy = test(args, model, iteration_test, device, logger)
+            if trial.should_prune():
+                raise optuna.exceptions.TrialPruned()
+
             if best_accuracy is None or best_accuracy > accuracy:
                 best_accuracy = accuracy
                 best_model = model.state_dict()
@@ -48,7 +55,7 @@ def train(args, train_dataset, test_dataset, model, optimizer, loss, logger, dev
         logger.info('Best Accuracy: {}'.format(best_accuracy))
         torch.save(best_model, os.path.join(args.save, "checkpoint", args.module_type + '_best_model.pth'))
 
-    return train_losses, test_acc
+    return accuracy
 
 def test(args, model, test_loader, device, logger):
     correct = 0
