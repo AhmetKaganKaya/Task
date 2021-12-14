@@ -41,7 +41,7 @@ if not os.path.exists(args.save):
     os.mkdir(os.path.join(args.save))
 if not os.path.exists(os.path.join(args.save, "checkpoint")):
     os.mkdir(os.path.join(args.save, "checkpoint"))
-logFile = os.path.join(args.save, args.module_type +  '_results.log')
+logFile = os.path.join(args.save, args.module_type +  '_results' + str(args.device) + '.log')
 logger = setLogger(logFile)
 logger.info(args)
 logger.info("Experiment Starts!")
