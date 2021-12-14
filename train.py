@@ -72,7 +72,7 @@ def train(trial, args, train_dataset, test_dataset, model, loss, logger, device,
         logger.info('Best Accuracy: {}'.format(best_accuracy))
         torch.save(best_model, os.path.join(args.save, "checkpoint", args.module_type + '_best_model' + str(args.device) + '.pth'))
 
-    return train_losses, test_acc
+    return best_accuracy
 
 
 def test(args, model, test_loader, device, logger):
