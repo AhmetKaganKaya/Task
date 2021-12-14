@@ -11,9 +11,9 @@ import argparse
 parser = argparse.ArgumentParser(description='One-Shot MNIST Classification')
 parser.add_argument('--num-iter', type=int, default=5000, metavar='B',
                     help='Number of epoch')
-parser.add_argument('--train-iter', type=int, default=100, metavar='B',
+parser.add_argument('--train-iter', type=int, default=200, metavar='B',
                     help='Number of train iterations')
-parser.add_argument('--test-iter', type=int, default=50, metavar='B',
+parser.add_argument('--test-iter', type=int, default=100, metavar='B',
                     help='Number of test iterations')
 parser.add_argument('--hidden-dim', type=int, default=128, metavar='B',
                     help='Number of neurons in hidden layer')
@@ -21,17 +21,19 @@ parser.add_argument('--image-size', type=int, default=28, metavar='B',
                     help='Width and Height')
 parser.add_argument('--query-size', type=int, default=8, metavar='B',
                     help='Query size')
-parser.add_argument('--module-type', type=str, default='cnn' , metavar='B',
+parser.add_argument('--device', type=int, default=0, metavar='B',
+                    help='Query size')
+parser.add_argument('--module-type', type=str, default='mlp' , metavar='B',
                     help='Module Type: MLP or CNN')
 parser.add_argument('--batch-size', type=int, default=32, metavar='B',
                     help='Batch size of queries')
-parser.add_argument('--lr', type=float, default=3e-5, metavar='B',
+parser.add_argument('--lr', type=float, default=3e-4, metavar='B',
                     help='Learning Rate')
 parser.add_argument('--save', type=str, default='output/', metavar='B',
                     help='outputs path')
 
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 args = parser.parse_args()
+device = torch.device("cuda:" + str(args.device) if torch.cuda.is_available() else "cpu")
 if not os.path.exists(args.save):
     os.mkdir(os.path.join(args.save))
 if not os.path.exists(os.path.join(args.save, "checkpoint")):

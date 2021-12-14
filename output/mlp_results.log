@@ -1,0 +1,32 @@
+Namespace(batch_size=32, device=1, hidden_dim=128, image_size=28, lr=0.0003, module_type='mlp', num_iter=10, query_size=8, save='output/', test_iter=100, train_iter=200)
+Experiment Starts!
+Epoch 1
+Epoch Loss: 139.35
+Test Accuracy: 53.62%
+Epoch 2
+Epoch Loss: 102.35
+Test Accuracy: 58.11%
+Epoch 3
+Epoch Loss: 87.55
+Test Accuracy: 58.33%
+Epoch 4
+Epoch Loss: 81.22
+Test Accuracy: 58.94%
+Epoch 5
+Epoch Loss: 77.21
+Test Accuracy: 60.24%
+Epoch 6
+Epoch Loss: 76.34
+Test Accuracy: 58.88%
+Epoch 7
+Epoch Loss: 72.10
+Test Accuracy: 60.16%
+Epoch 8
+Epoch Loss: 71.90
+Test Accuracy: 60.29%
+Epoch 9
+Epoch Loss: 69.67
+Test Accuracy: 59.88%
+Epoch 10
+Epoch Loss: 69.48
+Test Accuracy: 59.67%
