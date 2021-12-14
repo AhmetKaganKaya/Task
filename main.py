@@ -9,7 +9,7 @@ import os
 import argparse
 
 parser = argparse.ArgumentParser(description='One-Shot MNIST Classification')
-parser.add_argument('--num_iter', type=int, default=5000, metavar='B',
+parser.add_argument('--num-iter', type=int, default=5000, metavar='B',
                     help='Number of epoch')
 parser.add_argument('--train-iter', type=int, default=100, metavar='B',
                     help='Number of train iterations')
