@@ -27,7 +27,7 @@ parser.add_argument('--module-type', type=str, default='mlp' , metavar='B',
                     help='Module Type: MLP or CNN')
 parser.add_argument('--batch-size', type=int, default=32, metavar='B',
                     help='Batch size of queries')
-parser.add_argument('--lr', type=float, default=3e-4, metavar='B',
+parser.add_argument('--lr', type=float, default=1e-4, metavar='B',
                     help='Learning Rate')
 parser.add_argument('--save', type=str, default='output/', metavar='B',
                     help='outputs path')
