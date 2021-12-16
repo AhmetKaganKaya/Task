@@ -82,10 +82,7 @@ python3 main.py --num-iter [N] --train-iter [TRI]\
 
 It is recommended that 
 ```
-python3 main.py --num-iter 10 --train-iter 200 \
---test-iter 100 --hidden-dim 128 --image-size 28 \
---query-size 8 --module-type 'mlp' --batch-size 32 \
---lr 1e-4 --device 0
+python3 main.py --num-iter 10 --train-iter 200 --test-iter 100 --hidden-dim 128 --image-size 28 --query-size 8 --module-type 'mlp' --batch-size 32 --lr 1e-4 --device 0
 ```
 
 
