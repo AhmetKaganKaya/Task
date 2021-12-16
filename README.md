@@ -31,12 +31,6 @@ All hyperparameters were selected so that model can generalize and learn pattern
 <p align="center">
   Figure: Best experiment results in Optuna
 </p>
-<p align="center">
-  <img src="assets/newplot.png"/>
-</p>
-<p align="center">
-  Figure: Accurcy plot of the best result
-</p>
 
 # Training and Test Procedure
 In the task it is stated that "you should first sample a training class and then sample a single training example from that class. Then sample a bunch of so-called query examples from the training set.". Queries and sample from target class are obtained by dataloader of the custom dataset class. Since it is not clear in task whether only one target class will be used at each epoch, two different strategy were tested seperately. It is observed that using different target class and queries increases the performance. Backward procedure was done similar to **Episodic Learning**. Therefore, training procedure is similar to test procedure.
