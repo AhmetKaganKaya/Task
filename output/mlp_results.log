@@ -30,3 +30,35 @@ Test Accuracy: 59.88%
 Epoch 10
 Epoch Loss: 69.48
 Test Accuracy: 59.67%
+Namespace(batch_size=32, device=0, hidden_dim=128, image_size=28, lr=0.0001, module_type='mlp', num_iter=10, query_size=8, save='output/', test_iter=100, train_iter=200)
+Experiment Starts!
+Epoch 1
+Epoch Loss: 158.07
+Test Accuracy: 53.15%
+Epoch 2
+Epoch Loss: 128.15
+Test Accuracy: 54.70%
+Epoch 3
+Epoch Loss: 113.56
+Test Accuracy: 56.79%
+Epoch 4
+Epoch Loss: 103.29
+Test Accuracy: 57.73%
+Epoch 5
+Epoch Loss: 95.33
+Test Accuracy: 58.39%
+Epoch 6
+Epoch Loss: 91.50
+Test Accuracy: 59.61%
+Epoch 7
+Epoch Loss: 86.82
+Test Accuracy: 59.79%
+Epoch 8
+Epoch Loss: 84.03
+Test Accuracy: 59.81%
+Epoch 9
+Epoch Loss: 80.85
+Test Accuracy: 60.46%
+Epoch 10
+Epoch Loss: 79.11
+Test Accuracy: 60.33%
