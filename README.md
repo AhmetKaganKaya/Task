@@ -74,9 +74,13 @@ python3 main.py --num-iter [N] --train-iter [TRI]\
 [**L**]|float|3e-04|Learning Rate
 [**O**]|str|"output/"|outputs path
 
-It is recommended that 
+It is recommended that for MLP: 
 ```
 python3 main.py --num-iter 10 --train-iter 200 --test-iter 100 --hidden-dim 128 --image-size 28 --query-size 8 --module-type 'mlp' --batch-size 32 --lr 1e-4 --device 0
+```
+For CNN
+```
+python3 main.py --num-iter 10 --train-iter 200 --test-iter 100 --hidden-dim 128 --image-size 28 --query-size 8 --module-type 'cnn' --batch-size 32 --lr 3e-5 --device 0
 ```
 
 
