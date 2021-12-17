@@ -1,64 +1,32 @@
-Namespace(batch_size=32, device=2, hidden_dim=128, image_size=28, lr=0.0001, module_type='cnn', num_iter=10, query_size=8, save='output/', test_iter=100, train_iter=200)
-Experiment Starts!
-Epoch 1
-Epoch Loss: 109.16
-Test Accuracy: 58.94%
-Epoch 2
-Epoch Loss: 82.84
-Test Accuracy: 59.12%
-Epoch 3
-Epoch Loss: 74.77
-Test Accuracy: 58.91%
-Epoch 4
-Epoch Loss: 72.00
-Test Accuracy: 58.38%
-Epoch 5
-Epoch Loss: 69.26
-Test Accuracy: 61.52%
-Epoch 6
-Epoch Loss: 67.59
-Test Accuracy: 59.90%
-Epoch 7
-Epoch Loss: 65.16
-Test Accuracy: 58.96%
-Epoch 8
-Epoch Loss: 64.76
-Test Accuracy: 59.01%
-Epoch 9
-Epoch Loss: 63.03
-Test Accuracy: 59.16%
-Epoch 10
-Epoch Loss: 62.43
-Test Accuracy: 58.86%
 Namespace(batch_size=32, device=0, hidden_dim=128, image_size=28, lr=3e-05, module_type='cnn', num_iter=10, query_size=8, save='output/', test_iter=100, train_iter=200)
 Experiment Starts!
 Epoch 1
-Epoch Loss: 123.41
-Test Accuracy: 55.56%
+Epoch Loss: 132.85
+Test Accuracy: 54.35%
 Epoch 2
-Epoch Loss: 94.89
-Test Accuracy: 56.57%
+Epoch Loss: 96.02
+Test Accuracy: 57.31%
 Epoch 3
-Epoch Loss: 87.01
-Test Accuracy: 57.33%
+Epoch Loss: 86.48
+Test Accuracy: 57.68%
 Epoch 4
-Epoch Loss: 82.50
-Test Accuracy: 59.51%
+Epoch Loss: 81.74
+Test Accuracy: 58.13%
 Epoch 5
-Epoch Loss: 81.15
-Test Accuracy: 59.11%
+Epoch Loss: 79.08
+Test Accuracy: 58.98%
 Epoch 6
-Epoch Loss: 79.12
-Test Accuracy: 60.06%
+Epoch Loss: 77.21
+Test Accuracy: 57.78%
 Epoch 7
-Epoch Loss: 76.72
-Test Accuracy: 58.82%
+Epoch Loss: 75.59
+Test Accuracy: 58.54%
 Epoch 8
-Epoch Loss: 74.41
-Test Accuracy: 59.96%
+Epoch Loss: 72.65
+Test Accuracy: 58.43%
 Epoch 9
-Epoch Loss: 73.48
-Test Accuracy: 59.72%
+Epoch Loss: 71.98
+Test Accuracy: 58.77%
 Epoch 10
-Epoch Loss: 72.86
-Test Accuracy: 59.68%
+Epoch Loss: 70.26
+Test Accuracy: 59.06%
